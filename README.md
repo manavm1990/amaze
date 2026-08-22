@@ -2,7 +2,7 @@
 
 Learning [Godot](https://godotengine.org/) by recreating Pac-Man.
 
-**Engine:** Godot 4.7 · **Project name in editor:** X-Pac
+**Engine:** Godot 4.7 · **Project name in editor:** Man-Pac
 
 ## What’s here
 
