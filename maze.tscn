@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://wall.tscn" id="1_wall"]
+[ext_resource type="PackedScene" path="res://player.tscn" id="2_player"]
+
+[node name="Maze" type="Node2D"]
+
+[node name="TopWall" parent="." instance=ExtResource("1_wall")]
+position = Vector2(200, 8)
+size = Vector2(400, 16)
+
+[node name="BottomWall" parent="." instance=ExtResource("1_wall")]
+position = Vector2(200, 292)
+size = Vector2(400, 16)
+
+[node name="LeftWall" parent="." instance=ExtResource("1_wall")]
+position = Vector2(8, 150)
+size = Vector2(16, 300)
+
+[node name="RightWall" parent="." instance=ExtResource("1_wall")]
+position = Vector2(392, 150)
+size = Vector2(16, 300)
+
+[node name="MiddleWall" parent="." instance=ExtResource("1_wall")]
+position = Vector2(200, 150)
+size = Vector2(120, 16)
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(80, 80)
