@@ -1,13 +1,12 @@
 class_name Grid
 extends RefCounted
 
-## Edge length of one maze cell in world pixels. Nodes sit on tile centers.
-const TILE_UNIT := 32.0
-## One-cell footprint in world pixels (collision / visuals).
 const TILE_SIZE := Vector2(TILE_UNIT, TILE_UNIT)
+const TILE_UNIT := 32.0
 
 
-## Cell index → world position of that cell's center.
+# Example: cell (0, 0) → world position (16, 16) (center of first tile)
+# `world` is...the world in pixels
 static func cell_to_world(cell: Vector2i) -> Vector2:
 	return (Vector2(cell) + Vector2(0.5, 0.5)) * TILE_UNIT
 

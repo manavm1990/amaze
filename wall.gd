@@ -1,8 +1,6 @@
 class_name Wall
 extends StaticBody2D
 
-## Wall footprint in pixels. Defaults to one cell; scene instances override
-## this to build multi-cell segments (e.g. a 12-cell top wall).
 @export var size := Grid.TILE_SIZE:
 	set(value):
 		size = value
@@ -16,8 +14,6 @@ func _ready() -> void:
 	_update_shape()
 
 
-# Rebuilds the collision shape and visual polygon to match `size`. Guarded
-# because the exported setter can fire before @onready children exist.
 func _update_shape() -> void:
 	if not is_instance_valid(collision_shape) or not is_instance_valid(polygon):
 		return
