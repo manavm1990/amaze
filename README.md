@@ -1,18 +1,24 @@
-# man-pac
+# Amaze
 
-Learning [Godot](https://godotengine.org/) by recreating Pac-Man.
+A simple grid maze game — learning [Godot](https://godotengine.org/) one system at a time.
 
-**Engine:** Godot 4.7 · **Project name in editor:** Man-Pac
+**Engine:** Godot 4.7 · **Project name in editor:** Amaze
 
 ## What’s here
 
-Early prototype of maze navigation:
+Prototype maze navigation on a 32px tile grid:
 
-- **Player** (`player.gd` / `player.tscn`) — `CharacterBody2D` with cardinal-only movement (arrow keys or WASD). Direction changes only when the path is clear (`test_move`), so you can’t cut through walls or go diagonal.
-- **Wall** (`wall.gd` / `wall.tscn`) — sized `StaticBody2D` with matching collision and `Polygon2D` visual.
-- **Maze** (`maze.tscn`) — simple bordered room with a middle barrier and a player spawn.
+- **Player** (`player.gd` / `player.tscn`) — `CharacterBody2D` that steps one tile at a time (tap = one cell, hold = keep stepping). Cardinal only via Input Map actions `move_*` (arrows + WASD). Blocks on wall cells with a point query at the destination tile center.
+- **Wall** (`wall.gd` / `wall.tscn`) — sized `StaticBody2D` with matching collision and `Polygon2D` visual. Placed on tile centers.
+- **Maze** (`maze.tscn`) — bordered room, middle barrier, player spawn. Main scene.
 
 Physics layers: `walls` (1), `player` (2).
+
+## Design notes
+
+- Movement is **grid occupancy**, not continuous physics sliding.
+- Wall and actor positions use **tile centers**: `(col + 0.5, row + 0.5) * tile_size`.
+- Next up when you’re ready: better maze authoring (e.g. TileMap), collectibles, win condition — not ghost AI.
 
 ## Requirements
 
@@ -20,11 +26,12 @@ Physics layers: `walls` (1), `player` (2).
 
 ## Run
 
-1. Open the project folder in Godot.
-2. Set **Maze** (`maze.tscn`) as the main scene if it isn’t already (Project → Project Settings → Application → Run → Main Scene), or open `maze.tscn` and press **F6** to run the current scene.
-3. Move with **arrow keys** or **WASD**.
+1. Open this folder in Godot.
+2. Main scene is `maze.tscn` (F5), or open it and press F6.
+3. Click **Input** on the game window if keys do nothing.
+4. Move with **arrow keys** or **WASD**.
 
 ## Tooling
 
-- **gdstyle** editor plugin (`addons/gdstyle`) — GDScript linter/formatter integration (enabled in `project.godot`)
+- **gdstyle** editor plugin (`addons/gdstyle`) — GDScript linter/formatter (enabled in `project.godot`)
 - Style config: `gdstyle.toml` (tabs, type hints preferred, `addons` excluded from lint)
