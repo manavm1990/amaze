@@ -5,13 +5,14 @@
 **Amaze** is a learning project: a simple grid maze game in Godot 4.7+ (Forward Plus).
 
 - **Engine**: Godot 4.7, Forward Plus (per `config/features` in `project.godot`)
-- **Language**: GDScript with type hints
-- **Style**: See `gdstyle.toml` — tabs, 100-col max, type hints preferred
+- **Language**: GDScript
+- **Style**: See `gdstyle.toml` — tabs, 100-col max. Prefer `:=` inference; add explicit types only where `gdstyle`/`quality/type-hint` requires them (params, returns, bare `=` bindings)
 - **Goal**: Learn Godot fundamentals through small, complete systems — not a full arcade clone
 
 ## Game model
 
 - **Grid**: 32px tiles; nodes sit on **tile centers**
+- **Types**: `Vector2i` = cell indices / step deltas; `Vector2` = world pixels (positions, physics, tweens). Convert only via `Grid` (`cell_to_world` / `world_to_cell` / `snap_to_tile_center`)
 - **Movement**: one cell per step; tap vs hold; cardinal only (`move_up` / `move_down` / `move_left` / `move_right` in the Input Map)
 - **Blocking**: destination cell is a wall if a physics point query at that cell center hits the `walls` layer
 - Prefer **grid/tile data** for future maze growth (TileMap); avoid full-body shape queries for step permission
