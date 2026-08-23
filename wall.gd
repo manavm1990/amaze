@@ -1,7 +1,9 @@
 class_name Wall
 extends StaticBody2D
 
-@export var size: Vector2 = Vector2(32.0, 32.0):
+## Wall footprint in pixels. Defaults to one cell; scene instances override
+## this to build multi-cell segments (e.g. a 12-cell top wall).
+@export var size := Grid.TILE_SIZE:
 	set(value):
 		size = value
 		_update_shape()
@@ -20,7 +22,7 @@ func _update_shape() -> void:
 	if not is_instance_valid(collision_shape) or not is_instance_valid(polygon):
 		return
 
-	var half: Vector2 = size / 2.0
+	var half := size / 2.0
 	var rectangle_shape := RectangleShape2D.new()
 	rectangle_shape.size = size
 	collision_shape.shape = rectangle_shape

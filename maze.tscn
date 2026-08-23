@@ -1,29 +1,29 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://4vde5leyyf0w"]
 
 [ext_resource type="PackedScene" path="res://wall.tscn" id="1_wall"]
 [ext_resource type="PackedScene" path="res://player.tscn" id="2_player"]
 
-[node name="Maze" type="Node2D"]
+[node name="Maze" type="Node2D" unique_id=1518515294]
 
-[node name="TopWall" parent="." instance=ExtResource("1_wall")]
+[node name="TopWall" parent="." unique_id=1223717620 instance=ExtResource("1_wall")]
 position = Vector2(192, 16)
 size = Vector2(384, 32)
 
-[node name="BottomWall" parent="." instance=ExtResource("1_wall")]
+[node name="BottomWall" parent="." unique_id=484994569 instance=ExtResource("1_wall")]
 position = Vector2(192, 304)
 size = Vector2(384, 32)
 
-[node name="LeftWall" parent="." instance=ExtResource("1_wall")]
+[node name="LeftWall" parent="." unique_id=755446953 instance=ExtResource("1_wall")]
 position = Vector2(16, 160)
 size = Vector2(32, 320)
 
-[node name="RightWall" parent="." instance=ExtResource("1_wall")]
+[node name="RightWall" parent="." unique_id=176886982 instance=ExtResource("1_wall")]
 position = Vector2(368, 160)
 size = Vector2(32, 320)
 
-[node name="MiddleWall" parent="." instance=ExtResource("1_wall")]
+[node name="MiddleWall" parent="." unique_id=1570426015 instance=ExtResource("1_wall")]
 position = Vector2(192, 176)
 size = Vector2(128, 32)
 
-[node name="Player" parent="." instance=ExtResource("2_player")]
+[node name="Player" parent="." unique_id=1014178912 instance=ExtResource("2_player")]
 position = Vector2(48, 48)
